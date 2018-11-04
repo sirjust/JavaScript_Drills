@@ -1,0 +1,108 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+
+    <title>Hello, world!</title>
+	  <style>
+		  .hot {
+			  background: yellow;
+		  }
+		  
+		  .cold {
+			  background: blue;
+		  }
+	  </style>
+  </head>
+  <body>
+    <h1>Hello, world!</h1>
+	  <div id="outerDiv">
+	  	  <p class="hot">Hello</p>
+		  <p class="hot">Goodbye</p>
+		  <p class="hot">My name is Justin</p>
+		  <p class="hot">Fourth Paragraph</p>
+		  <ul>
+		  	<li class='one'>first list item</li>
+		  	<li class='two'>second list item</li>
+		  </ul>
+
+		  <p class="hot">Fifth Paragraph</p>
+	  </div>
+	  <div id="reportDiv">Nothing to report</div>
+	  
+    <!-- Optional JavaScript -->
+	  <script>
+	  	var paragraph = document.getElementsByClassName('hot');
+		var firstParagraph = paragraph.item(0);
+		var secondParagraph =  paragraph.item(1);
+		var thirdParagraph = paragraph.item(2);
+		var listContainer = document.getElementsByTagName('ul')[0];
+		var myList = document.getElementsByTagName('li');
+//		  changeClass(secondParagraph);
+//		  displayClass(secondParagraph);
+//		  removeAttr(firstParagraph);
+//		  setAtribute(thirdParagraph);
+//		  changeText();
+		  updateListItems(myList);
+		  addToList(listContainer);
+		  myQuerySelectorFunction();
+		  function displayClass(item){
+			  if (item.hasAttribute('class')){
+				  var attr = item.getAttribute('class');
+			  var el = document.getElementById('reportDiv');
+				  el.innerHTML = "<p>The element's class name is: " + attr + '</p>';
+			  }
+		  }
+		  
+		  function changeClass(item){
+			  item.className = 'cold';
+		  }
+		  
+		  function removeAttr(item){
+			  if(item.hasAttribute('class')){
+				  item.removeAttribute('class');
+			  }
+		  }
+		  
+		  function setAtribute(item){
+			  item.setAttribute('class', 'cold');
+		  }
+		  
+		  function changeText(){
+			  var itemToChange = document.getElementsByTagName('h1')[0];
+			  itemToChange.innerHTML = "I have been changed";
+		  }
+		  
+		  function updateListItems(list){
+			  for(i=0; i < list.length; i++){
+				  list[i].setAttribute('class', 'cold');
+			  }
+		  }
+		  function addToList(listContainer){
+			  var itemToJoin = document.createElement('li');
+			  var textInNewElement = document.createTextNode('I have been added to the list');
+			  itemToJoin.appendChild(textInNewElement);
+			  listContainer.insertBefore(itemToJoin, listContainer.firstChild);
+		  }
+		  
+		  function myQuerySelectorFunction(){
+			  var hotItems = document.querySelectorAll('.hot');
+			  for(i=0;i<hotItems.length;i++){
+				  hotItems[i].className = 'cold';
+			  }
+		  }
+
+		
+	  
+	  </script>
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+  </body>
+</html>
