@@ -13,13 +13,25 @@ $(document).ready(function(){
 	}
 	$("#clickNumber").html(sessionStorage.getItem("number"));
 	
+	if (sessionStorage.getItem("myText") != null){
+		var outputLocation = $(".storageDisplay");
+		var output = sessionStorage.getItem("myText");
+		outputLocation.after(JSON.stringify(output));
+	}
 	
 	// this takes data inside an html attribute and places it in the text node
 	var elementWithData = document.getElementById('myText');
-	var dataToExtract = elementWithData.dataset.mytext;
-	sessionStorage.setItem("greeting", dataToExtract);
-	var greeting = sessionStorage.getItem("greeting");
-	elementWithData.textContent = sessionStorage.getItem("greeting");
+	console.log(elementWithData);
+	
+	sessionStorage.setItem("myText", elementWithData);
+	
+//	var dataToExtract = elementWithData.dataset.mytext;
+//	sessionStorage.setItem("greeting", dataToExtract);
+//	var greeting = sessionStorage.getItem("greeting");
+//	elementWithData.textContent = greeting;
+//	
+	console.log(elementWithData);
+	
 	
 	}) 
 
